@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "gpt.copy.as.markdown",
+    "version": "0.0.1",
+    "description": "Chrome extension to copy content from chatGPT as markdown",
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
+    "permissions": [
+      "contextMenus",
+      "clipboardWrite",
+      "scripting",
+      "storage",
+      "alarms",
+      "notifications",
+      "activeTab",
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://chat.openai.com/"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://chat.openai.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
